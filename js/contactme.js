@@ -25,7 +25,7 @@
       submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
 
-      fetch('https://relaxed-torrone-ead861.netlify.app/contactme', {
+      fetch('/contactme', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

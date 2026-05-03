@@ -27,7 +27,7 @@ function SetImageElement (){
 function AppendElement(pd) {
     worksContainer.appendChild(pd)
 }  
-fetch('https://relaxed-torrone-ead861.netlify.app/', {
+fetch('/repos', {
     method: 'GET'
 })
 .then(response => response.json())
