@@ -15,7 +15,7 @@
       --surface: black;
       --border: rgba(0,0,0,0.12);
       --border-strong: rgba(0,0,0,0.22);
-      --text-primary: #1a1a18;
+      --text-primary: white;
       --text-secondary: #6b6b66;
       --text-tertiary: #9e9e98;
       --accent: grey;
@@ -270,45 +270,6 @@
     </div>
   </div>
 
-  <script>
-    const textarea = document.getElementById('email-body');
-    const charCount = document.getElementById('char-count');
-    const submitBtn = document.getElementById('submit-btn');
-    const successBanner = document.getElementById('success-banner');
-    const emailInput = document.getElementById('sender-email');
-    const form = document.querySelector('.contact-form');
-
-    textarea.addEventListener('input', () => {
-      const len = textarea.value.length;
-      charCount.textContent = len + ' / 2000';
-      charCount.className = 'char-count' + (len >= 2000 ? ' over' : len > 1800 ? ' warn' : '');
-    });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      const message = textarea.value.trim();
-      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-      emailInput.classList.toggle('error', !emailValid);
-      textarea.classList.toggle('error', !message);
-
-      if (!emailValid || !message) return;
-
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        successBanner.style.display = 'flex';
-        submitBtn.style.display = 'none';
-        emailInput.value = '';
-        textarea.value = '';
-        charCount.textContent = '0 / 2000';
-        charCount.className = 'char-count';
-        emailInput.classList.remove('error');
-        textarea.classList.remove('error');
-      }, 800);
-    });
-  </script>
+  <script src="../js/contactme.js"></script>
 </body>
 </html>
