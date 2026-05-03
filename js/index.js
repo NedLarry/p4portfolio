@@ -4,6 +4,8 @@ const imageContainer = document.querySelector(".imgSelect");
 
 var dataObject = []
 
+var imageNames = ["me.jpg", "me2.jpd", "me3.jpg", "me4.jpg"]
+
 function FormulateImgElement(pd) {
     var element = document.createElement("a")
     element.text = pd.name
@@ -12,6 +14,19 @@ function FormulateImgElement(pd) {
     element.setAttribute("class", "works")
     dataObject.push(element)
     dataObject.forEach(AppendElement)
+}
+
+SetImageElement()
+
+function SetImageElement (){
+
+    var index = Math.floor(Math.random() * 5);
+
+    var imgToShw = imageNames[index];
+
+    console.log(imgToShw);
+
+    imageContainer.setAttribute('src', `.././images/{imgToShw}`)
 }
    
 function AppendElement(pd) {
