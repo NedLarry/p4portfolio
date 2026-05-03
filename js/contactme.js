@@ -28,7 +28,8 @@
       fetch('https://relaxed-torrone-ead861.netlify.app/contactme', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'access-control-allow-origin': '*'
         },
         body: JSON.stringify({ fromEmailAddress, text })
       })
