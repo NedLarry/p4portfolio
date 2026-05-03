@@ -1,5 +1,6 @@
 
-const imageContainer = document.querySelector(".works");
+const worksContainer = document.querySelector(".works");
+const imageContainer = document.querySelector(".imgSelect");
 
 var dataObject = []
 
@@ -14,7 +15,7 @@ function FormulateImgElement(pd) {
 }
    
 function AppendElement(pd) {
-    imageContainer.appendChild(pd)
+    worksContainer.appendChild(pd)
 }  
 fetch('https://relaxed-torrone-ead861.netlify.app/', {
     method: 'GET'

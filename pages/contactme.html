@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; background-color: black; color: white;}
+
+    :root {
+      --bg: black;
+      --surface: black;
+      --border: rgba(0,0,0,0.12);
+      --border-strong: rgba(0,0,0,0.22);
+      --text-primary: #1a1a18;
+      --text-secondary: #6b6b66;
+      --text-tertiary: #9e9e98;
+      --accent: grey;
+      --accent-dark: #3C3489;
+      --accent-fill: #EEEDFE;
+      --success-bg: black;
+      --success-border: white;
+      --success-text: white;
+      --error: #A32D2D;
+      --warn: #BA7517;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 580px;
+    }
+
+    .contact-header {
+      margin-bottom: 2.75rem;
+    }
+
+    .contact-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 46px;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2rem 1.75rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.01em;
+    }
+
+    .field-label span {
+      color: #D85A30;
+      margin-left: 2px;
+    }
+
+    .field-input {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      width: 100%;
+    }
+
+    .field-input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .field-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.14);
+    }
+
+    .field-input.error {
+      border-color: var(--error);
+    }
+
+    .field-textarea {
+      resize: vertical;
+      min-height: 165px;
+      line-height: 1.6;
+    }
+
+    .char-count {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      text-align: right;
+    }
+
+    .char-count.warn { color: var(--warn); }
+    .char-count.over { color: var(--error); }
+
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0.1rem 0;
+    }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .privacy-note {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .submit-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 26px;
+      background: var(--accent);
+      color: var(--accent-fill);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .submit-btn:hover { background: var(--accent-dark); }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .success-banner {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--success-bg);
+      border: 0.5px solid var(--success-border);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--success-text);
+    }
+
+    .success-icon {
+      width: 18px;
+      height: 18px;
+      background: var(--success-text);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .success-icon::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border-right: 2px solid var(--success-bg);
+      border-bottom: 2px solid var(--success-bg);
+      transform: rotate(45deg) translateY(-1px);
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .contact-title { font-size: 36px; }
+      .contact-card { padding: 1.5rem 1.25rem; }
+      .submit-row { flex-direction: column; align-items: stretch; }
+      .submit-btn { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="contact-header">
+      <p class="contact-eyebrow">Get in touch</p>
+      <h1 class="contact-title">Say hello.</h1>
+      <p class="contact-subtitle">Have a question or just want to chat? Fill out the form below and I'll get back to you as soon as I can.</p>
+    </div>
+
+    <div class="contact-card">
+      <form class="contact-form" novalidate>
+        <div class="field-group">
+          <label class="field-label" for="sender-email">Your email<span>*</span></label>
+          <input
+            class="field-input"
+            type="email"
+            id="sender-email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="email-body">Message<span>*</span></label>
+          <textarea
+            class="field-input field-textarea"
+            id="email-body"
+            placeholder="What's on your mind?"
+            maxlength="2000"
+          ></textarea>
+          <div class="char-count" id="char-count">0 / 2000</div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="submit-row">
+          <p class="privacy-note">I'll only use your email to reply to you — no lists, no spam.</p>
+          <button class="submit-btn" type="submit" id="submit-btn">Send message</button>
+        </div>
+
+        <div class="success-banner" id="success-banner">
+          <div class="success-icon"></div>
+          Message sent! I'll be in touch soon.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const textarea = document.getElementById('email-body');
+    const charCount = document.getElementById('char-count');
+    const submitBtn = document.getElementById('submit-btn');
+    const successBanner = document.getElementById('success-banner');
+    const emailInput = document.getElementById('sender-email');
+    const form = document.querySelector('.contact-form');
+
+    textarea.addEventListener('input', () => {
+      const len = textarea.value.length;
+      charCount.textContent = len + ' / 2000';
+      charCount.className = 'char-count' + (len >= 2000 ? ' over' : len > 1800 ? ' warn' : '');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const message = textarea.value.trim();
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      emailInput.classList.toggle('error', !emailValid);
+      textarea.classList.toggle('error', !message);
+
+      if (!emailValid || !message) return;
+
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        successBanner.style.display = 'flex';
+        submitBtn.style.display = 'none';
+        emailInput.value = '';
+        textarea.value = '';
+        charCount.textContent = '0 / 2000';
+        charCount.className = 'char-count';
+        emailInput.classList.remove('error');
+        textarea.classList.remove('error');
+      }, 800);
+    });
+  </script>
+</body>
+</html>
