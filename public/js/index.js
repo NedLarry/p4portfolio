@@ -32,7 +32,6 @@ fetch('/repos', {
 })
 .then(response => response.json())
 .then(data => {
-    console.log('data', data)
     data.forEach(FormulateImgElement)
 })
 .catch(error => console.error('Error:', error));
