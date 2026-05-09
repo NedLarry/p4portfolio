@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail')
+const nodemailer = require('nodemailer');
 
 sgMail.setApiKey(process.env.SENDGRDI_API_KEY);
 var app = express();
@@ -53,13 +54,23 @@ app.post('/contactme', async (req, res) => {
 
     try{
 
-        sgMail.send({
-            to: "lrrchinedu@gmail.com",
-            "from": req.body.fromEmailAddress,
-            "subject": "Inquisition From Portfolio",
-            text: req.body.text
-        })
-        return res.status(200).send({success: "Email Sent"})
+        const {emailAddress, text} = req.body;
+
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.gmail_email,
+                pass: process.env.gmail_pass
+            }
+        });
+        await transporter.sendMail({
+            from: emailAddress,
+            to: process.env.gmail_email,
+            subject: "Inquisition From Portfolio",
+            text: text
+        });
+
+        return res.status(200).send({message: "Message sent successfully"})
 
     }catch(e){
         return res.status(500).send({error: "an error occured"})
