@@ -42,7 +42,11 @@ app.get('/repos', (req, res) => {
     }).then(response => response.json()).then(data => {
         var dataObject = [];
         for(let i = 0; i < data.length; i++){
-            if(data[i].id == '1012905963' || data[i].id == '1158540099' || data[i].id == '1159488241') continue;
+            if(data[i].id == '1012905963' || data[i].id == '1158540099' 
+                || data[i].id == '1159488241' || data[i].id == '1219157741' 
+                || data[i].id == '1182172189' 
+                || data[i].id == '1167505358'
+            || data[i].id == '1200160264') continue;
             dataObject.push({Id: data[i].id, name: data[i].name, html_url: data[i].html_url, description: data[i].description});
         }
         res.send(dataObject);
