@@ -58,7 +58,7 @@ app.post('/contactme', async (req, res) => {
 
     try{
 
-        const {emailAddress, text} = req.body;
+        const {fromEmailAddress, text} = req.body;
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -68,7 +68,7 @@ app.post('/contactme', async (req, res) => {
             }
         });
         await transporter.sendMail({
-            from: emailAddress,
+            from: fromEmailAddress,
             to: process.env.gmail_email,
             subject: "Inquisition From Portfolio",
             text: text
