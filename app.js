@@ -35,6 +35,10 @@ app.get('/api/resume', async (req, res) => {
             return res.status(404).send({ error: 'No resume found' });
         }
 
+        if (typeof globalThis.DOMMatrix === 'undefined') {
+            globalThis.DOMMatrix = require('@thednp/dommatrix');
+        }
+
         const { PDFParse } = require('pdf-parse');
         const fileBuffer = fs.readFileSync(path.join(resumesDir, filename));
         const parser = new PDFParse({ data: fileBuffer });
