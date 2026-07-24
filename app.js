@@ -26,31 +26,35 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.static(path.join(__dirname, './public')));
 
-app.get('/api/resume', async (req, res) => {
+const resumeDataFile = path.join(resumesDir, 'resume-data.json');
+
+app.get('/api/resume', (req, res) => {
 
     try {
-        const filename = fs.readdirSync(resumesDir).find(f => f.toLowerCase().endsWith('.pdf'));
-
-        if (!filename) {
+        if (!fs.existsSync(resumeDataFile)) {
             return res.status(404).send({ error: 'No resume found' });
         }
 
-        if (typeof globalThis.DOMMatrix === 'undefined') {
-            globalThis.DOMMatrix = require('@thednp/dommatrix');
-        }
-
-        const { PDFParse } = require('pdf-parse');
-        const fileBuffer = fs.readFileSync(path.join(resumesDir, filename));
-        const parser = new PDFParse({ data: fileBuffer });
-        const { pages } = await parser.getText();
-        await parser.destroy();
-
-        const text = pages.map(page => page.text).join('\n\n');
-
-        res.send({ filename, url: `/resumes/${filename}`, text });
+        const data = JSON.parse(fs.readFileSync(resumeDataFile, 'utf8'));
+        res.send(data);
 
     } catch (e) {
         res.status(500).send({ error: 'Failed to read resume' });
+    }
+})
+
+app.get('/api/resume/download', (req, res) => {
+
+    try {
+        if (!fs.existsSync(resumeDataFile)) {
+            return res.status(404).send({ error: 'No resume found' });
+        }
+
+        const { filename } = JSON.parse(fs.readFileSync(resumeDataFile, 'utf8'));
+        res.download(path.join(resumesDir, filename), filename);
+
+    } catch (e) {
+        res.status(500).send({ error: 'Failed to download resume' });
     }
 })
 

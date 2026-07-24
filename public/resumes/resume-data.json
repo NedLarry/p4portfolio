@@ -1,0 +1,199 @@
+{
+  "filename": "Chinedu_Mbah_.pdf",
+  "url": "/resumes/Chinedu_Mbah_.pdf",
+  "generatedAt": "2026-07-24T18:22:54.948Z",
+  "blocks": [
+    {
+      "type": "header",
+      "text": "CHINEDU MBAH"
+    },
+    {
+      "type": "pipeline",
+      "text": "Lead Backend Engineer | C#, ASP.NET Core, Node.js"
+    },
+    {
+      "type": "pipeline",
+      "text": "Lagos, Nigeria | Open to Remote - Available Across Any Time Zone"
+    },
+    {
+      "type": "pipeline",
+      "text": "chinedu.mbah.g20@gmail.com | +234 816 020 5083"
+    },
+    {
+      "type": "labeled",
+      "text": "GitHub: github.com/nedlarry | LinkedIn: linkedin.com/in/chinedu-mbah | Portfolio: pfour-portfolio.vercel.app"
+    },
+    {
+      "type": "header",
+      "text": "PROFESSIONAL SUMMARY"
+    },
+    {
+      "type": "paragraph",
+      "text": "Backend Engineer with 7+ years of experience designing and scaling high-availability financial systems using C#, ASP.NET Core, Node.js, and Express, currently leading an engineering team. Strong background in distributed systems, microservices architecture, performance optimization, and secure API design. Proven record of reducing system latency, improving reliability, and delivering production-grade banking and fintech solutions in regulated environments."
+    },
+    {
+      "type": "header",
+      "text": "TECHNICAL SKILLS"
+    },
+    {
+      "type": "labeled",
+      "text": "Languages: C#, Node.js"
+    },
+    {
+      "type": "labeled",
+      "text": "Frameworks: ASP.NET Core, ASP.NET MVC, .NET MAUI, Express.js"
+    },
+    {
+      "type": "labeled",
+      "text": "Architecture: Microservices, REST APIs, Event-Driven Systems, Clean Architecture"
+    },
+    {
+      "type": "labeled",
+      "text": "Databases: Microsoft SQL Server, PostgreSQL, MongoDB, Query Optimization"
+    },
+    {
+      "type": "labeled",
+      "text": "Cloud & Security: Amazon Web Services (AWS), Google Cloud Platform (GCP), ASP.NET Identity Framework, Role-Based Access Control (RBAC)"
+    },
+    {
+      "type": "labeled",
+      "text": "Practices: SOLID Principles, Test-Driven Development (TDD), Git, Agile"
+    },
+    {
+      "type": "header",
+      "text": "PROFESSIONAL EXPERIENCE"
+    },
+    {
+      "type": "pipeline",
+      "text": "Lead Engineer | Impravia Limited | April 2026 - Present"
+    },
+    {
+      "type": "bullet",
+      "text": "Led a team of engineers delivering the APIs powering a core financial product, enabling customers to purchase and manage stocks, ETFs, and cryptocurrency holdings."
+    },
+    {
+      "type": "bullet",
+      "text": "Designed and implemented the backend service architecture for Stakeout, a peer-to-peer wagering platform, including market settlement and transaction handling."
+    },
+    {
+      "type": "bullet",
+      "text": "Built a business funding intake service allowing companies to submit financial and operational information for automated eligibility assessment and funding recommendations."
+    },
+    {
+      "type": "labeled",
+      "text": "Technologies: ASP.NET Core, C#, Microsoft SQL Server, Event-Driven Architecture, Git"
+    },
+    {
+      "type": "pipeline",
+      "text": "Senior Software Engineer | Zedvance Finance | December 2024 - March 2026"
+    },
+    {
+      "type": "bullet",
+      "text": "Architected a resilient POS transaction retry service using event-driven communication, increasing transaction reliability and customer satisfaction by 20%."
+    },
+    {
+      "type": "bullet",
+      "text": "Designed and implemented dynamic role-based access control (RBAC) using ASP.NET Identity, strengthening internal security controls."
+    },
+    {
+      "type": "bullet",
+      "text": "Built a loan portfolio summary API for business customers, improving transparency and increasing user satisfaction by 15%."
+    },
+    {
+      "type": "bullet",
+      "text": "Contributed to Maker-Checker workflow service implementation for internal compliance and audit traceability."
+    },
+    {
+      "type": "bullet",
+      "text": "Optimized API performance and SQL queries, reducing latency and improving production stability."
+    },
+    {
+      "type": "bullet",
+      "text": "Resolved production incidents, reducing mean time to resolution (MTTR) by 15%."
+    },
+    {
+      "type": "labeled",
+      "text": "Technologies: ASP.NET Core, C#, Microsoft SQL Server, Event-Driven Architecture, Git"
+    },
+    {
+      "type": "pipeline",
+      "text": "Backend Engineer | Sterling Holding Company (TAB) | February 2023 - December 2024"
+    },
+    {
+      "type": "bullet",
+      "text": "Led development of a CRM platform integrated with core banking systems for regulatory complaint management."
+    },
+    {
+      "type": "bullet",
+      "text": "Optimized high-traffic merchant APIs, improving response time by 10%."
+    },
+    {
+      "type": "bullet",
+      "text": "Designed and deployed a scalable OTP verification service supporting voice and WhatsApp channels, achieving 90% stakeholder satisfaction."
+    },
+    {
+      "type": "bullet",
+      "text": "Refactored core banking APIs, reducing response latency by 50% through database and architecture improvements."
+    },
+    {
+      "type": "bullet",
+      "text": "Built a secure onboarding portal for non-resident account opening with document upload functionality."
+    },
+    {
+      "type": "labeled",
+      "text": "Technologies: C#, ASP.NET Core, Microsoft SQL Server, PostgreSQL, REST APIs"
+    },
+    {
+      "type": "pipeline",
+      "text": "Backend Engineer | PillarSalt Integrated Limited | February 2021 - February 2023"
+    },
+    {
+      "type": "bullet",
+      "text": "Designed and implemented a CBN-compliant Cash Management System, improving operational reliability."
+    },
+    {
+      "type": "bullet",
+      "text": "Developed microservices for merchant onboarding, reducing onboarding cycle time."
+    },
+    {
+      "type": "bullet",
+      "text": "Optimized complex SQL queries through multi-join refactoring and indexing strategy, reducing execution time from over 2 seconds to under 1 second."
+    },
+    {
+      "type": "bullet",
+      "text": "Contributed to backend architecture powering multiple revenue-generating web applications and microservices."
+    },
+    {
+      "type": "labeled",
+      "text": "Technologies: ASP.NET Core, Microsoft SQL Server, PostgreSQL, Microservices"
+    },
+    {
+      "type": "pipeline",
+      "text": "Software Engineer | Fidelity Bank Plc | July 2019 - February 2021"
+    },
+    {
+      "type": "bullet",
+      "text": "Developed enterprise survey and internal performance systems, improving customer satisfaction metrics by 15%."
+    },
+    {
+      "type": "bullet",
+      "text": "Built automated POS chargeback reversal services, reducing customer complaints by 5%, and implemented fraud monitoring with real-time SMS and email alerting."
+    },
+    {
+      "type": "bullet",
+      "text": "Developed secure vendor onboarding workflows with multi-stage approval layers."
+    },
+    {
+      "type": "labeled",
+      "text": "Technologies: ASP.NET Core, ASP.NET MVC, Microsoft SQL Server"
+    },
+    {
+      "type": "header",
+      "text": "EDUCATION"
+    },
+    {
+      "type": "pipeline",
+      "text": "Bachelor of Science (B.Sc.), Computer Science | Nnamdi Azikiwe University"
+    }
+  ]
+}
