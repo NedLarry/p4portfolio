@@ -5,7 +5,6 @@ const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail')
 const nodemailer = require('nodemailer');
-const { PDFParse } = require('pdf-parse');
 
 const resumesDir = path.join(__dirname, './public/resumes');
 
@@ -36,6 +35,7 @@ app.get('/api/resume', async (req, res) => {
             return res.status(404).send({ error: 'No resume found' });
         }
 
+        const { PDFParse } = require('pdf-parse');
         const fileBuffer = fs.readFileSync(path.join(resumesDir, filename));
         const parser = new PDFParse({ data: fileBuffer });
         const { pages } = await parser.getText();
