@@ -1,9 +1,13 @@
 const path = require('path')
+const fs = require('fs');
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail')
 const nodemailer = require('nodemailer');
+const { PDFParse } = require('pdf-parse');
+
+const resumesDir = path.join(__dirname, './public/resumes');
 
 sgMail.setApiKey(process.env.SENDGRDI_API_KEY);
 var app = express();
@@ -23,42 +27,36 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.static(path.join(__dirname, './public')));
 
+app.get('/api/resume', async (req, res) => {
 
-function FormulateImgElement(pd) {
-    dataObject = [];
-    dataObject.push({name: pd.name, html_url: pd.html_url, description: pd.description})
-}
-   
-app.get('/repos', (req, res) => {
-    
-    fetch('https://api.github.com/users/nedlarry/repos', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/vnd.github+json',
-            'Authorization': process.env.hub_token,
-            'X-GitHub-Api-Version': '2022-11-28'
-        }
-    }).then(response => response.json()).then(data => {
-        var dataObject = [];
-        for(let i = 0; i < data.length; i++){
-            if(data[i].id == '1012905963' || data[i].id == '1158540099' 
-                || data[i].id == '1159488241' || data[i].id == '1219157741' 
-                || data[i].id == '1182172189' 
-                || data[i].id == '1167505358'
-            || data[i].id == '1200160264') continue;
-            dataObject.push({Id: data[i].id, name: data[i].name, html_url: data[i].html_url, description: data[i].description});
-        }
-        res.send(dataObject);
-    }).catch(error => console.error('Error:', error));
+    try {
+        const filename = fs.readdirSync(resumesDir).find(f => f.toLowerCase().endsWith('.pdf'));
 
+        if (!filename) {
+            return res.status(404).send({ error: 'No resume found' });
+        }
+
+        const fileBuffer = fs.readFileSync(path.join(resumesDir, filename));
+        const parser = new PDFParse({ data: fileBuffer });
+        const { pages } = await parser.getText();
+        await parser.destroy();
+
+        const text = pages.map(page => page.text).join('\n\n');
+
+        res.send({ filename, url: `/resumes/${filename}`, text });
+
+    } catch (e) {
+        res.status(500).send({ error: 'Failed to read resume' });
+    }
 })
 
 app.post('/contactme', async (req, res) => {
 
     try{
 
-        const {fromEmailAddress, text} = req.body;
+        const {name, fromEmailAddress, phoneNumber, text} = req.body;
+
+        const contactDetails = JSON.stringify({ name, email: fromEmailAddress, phoneNumber });
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -71,7 +69,7 @@ app.post('/contactme', async (req, res) => {
             from: fromEmailAddress,
             to: process.env.gmail_email,
             subject: "Inquisition From Portfolio",
-            text: text
+            text: `${contactDetails}\n\n${text}`
         });
 
         return res.status(200).send({message: "Message sent successfully"})

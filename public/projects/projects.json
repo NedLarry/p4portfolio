@@ -1,0 +1,20 @@
+[
+    {
+        "projectname": "Bnacle",
+        "description": "A p2p financing service",
+        "url": "https://bnacle.vercel.app/",
+        "icon": "/projects/images/bnacle.png"
+    },
+    {
+        "projectname": "Stakeout",
+        "description": "A p2p wagering service where users can wager on anything/event",
+        "url": "https://stakeout-chi.vercel.app/",
+        "icon": "/projects/images/stakeout.png"
+    },
+    {
+        "projectname": "Blog Admin",
+        "description": "A blog where users can post topics related to tags or opinions in general",
+        "url": "https://blog-admin-gray-phi.vercel.app/",
+        "icon": "/projects/images/blog-admin.png"
+    }
+]

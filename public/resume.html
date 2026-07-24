@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume</title>
+  <link rel="stylesheet" href="./css/theme.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; background-color: black; color: white; }
+
+    :root {
+      --bg: black;
+      --surface: black;
+      --border: rgba(255,255,255,0.14);
+      --border-strong: rgba(255,255,255,0.24);
+      --text-primary: white;
+      --text-secondary: #9e9e98;
+      --text-tertiary: #6b6b66;
+      --accent: grey;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .resume-header {
+      margin-bottom: 2rem;
+    }
+
+    .resume-eyebrow {
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 0.6rem;
+    }
+
+    .resume-title {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.85rem;
+    }
+
+    .resume-subtitle {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .resume-subtitle code {
+      font-family: monospace;
+      color: var(--text-primary);
+      background: rgba(255,255,255,0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .resume-actions {
+      margin-top: 1.25rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .resume-btn {
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      padding: 10px 22px;
+      background: var(--accent);
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .resume-btn:hover { opacity: 0.85; }
+
+    .resume-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+    }
+
+    .resume-dump {
+      font-size: var(--fs-sm);
+      line-height: 1.65;
+      word-break: break-word;
+      color: var(--text-primary);
+    }
+
+    .resume-line {
+      margin: 0 0 0.6em;
+      white-space: normal;
+    }
+
+    .resume-line--header {
+      margin-top: 1.1em;
+      margin-bottom: 0.4em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .resume-line--header:first-child {
+      margin-top: 0;
+    }
+
+    .resume-line--pipeline {
+      font-weight: 700;
+      margin-top: 0.6em;
+    }
+
+    .resume-line--labeled {
+      margin-left: 1.6em;
+    }
+
+    .resume-line--bullet {
+      margin-left: 1.6em;
+      padding-left: 1.4em;
+      text-indent: -1.4em;
+    }
+
+    .resume-line--paragraph {
+      margin-bottom: 0.8em;
+    }
+
+    .resume-footnote {
+      margin-top: 1.25rem;
+      font-size: var(--fs-xs);
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .resume-status {
+      font-size: var(--fs-base);
+      color: var(--text-secondary);
+    }
+
+    .resume-status.error {
+      color: #d85a30;
+    }
+
+    @media (max-width: 480px) {
+      .resume-title { font-size: var(--fs-lg); }
+      .resume-card { padding: 1.25rem 1.25rem; }
+      .resume-dump { font-size: var(--fs-xs); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="resume-header">
+      <p class="resume-eyebrow">Resume &middot; Chinedu Mbah</p>
+      <h1 class="resume-title">Software Engineer</h1>
+      <div class="resume-actions">
+        <a class="resume-btn" id="resume-download" href="#" target="_blank" rel="noopener" hidden>Download resume</a>
+      </div>
+    </div>
+
+    <div class="resume-card">
+      <p class="resume-status" id="resume-status">Loading resume&hellip;</p>
+      <div class="resume-dump" id="resume-dump" hidden></div>
+    </div>
+  </div>
+
+  <script src="./js/resume.js"></script>
+</body>
+</html>

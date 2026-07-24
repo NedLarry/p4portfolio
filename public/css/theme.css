@@ -1,0 +1,14 @@
+:root{
+    --font-mono: 'Courier New', monospace;
+    --fs-xs: clamp(0.72rem, 1.4vh, 0.85rem);
+    --fs-sm: clamp(0.82rem, 1.6vh, 0.95rem);
+    --fs-base: clamp(0.9rem, 1.8vh, 1.05rem);
+    --fs-md: clamp(1.05rem, 2.1vh, 1.25rem);
+    --fs-lg: clamp(1.2rem, 2.6vh, 1.5rem);
+    --fs-xl: clamp(1.6rem, 3.6vh, 2.2rem);
+}
+
+body{
+    font-family: var(--font-mono);
+    font-size: var(--fs-base);
+}
